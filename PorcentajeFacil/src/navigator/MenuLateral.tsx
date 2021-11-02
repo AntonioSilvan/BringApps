@@ -6,14 +6,17 @@ import { IvaScreen } from "../screens/IvaScreen";
 import { PropinaScreen } from "../screens/PropinaScreen";
 import { DescuentoScreen } from "../screens/DescuentoScreen";
 import { FraccionesScreen } from "../screens/FraccionesScreen";
+import { styles } from "../theme/AppTheme";
 
 const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
     return (
-        <Drawer.Navigator screenOptions={{
-          headerStyle:{ elevation: 0}
-        }}>
+        <Drawer.Navigator 
+        screenOptions={
+          { sceneContainerStyle:{...styles.sceneContainer}, headerStyle:{ elevation: 0 }}
+        }
+        >
           <Drawer.Screen name="Porcentaje simple" component={ SimpleScreen } />
           <Drawer.Screen name="Descuento" component={ DescuentoScreen } />
           <Drawer.Screen name="Propina" component={ PropinaScreen } />
