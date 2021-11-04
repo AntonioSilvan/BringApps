@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <NavigationContainer>
       <StatusBar
-      backgroundColor="black"
+      backgroundColor="orange"
       barStyle="light-content"/>
 
       <MenuLateral></MenuLateral>

@@ -14,7 +14,7 @@ export const MenuLateral = () => {
     return (
         <Drawer.Navigator 
         screenOptions={
-          { sceneContainerStyle:{...styles.sceneContainer}, headerStyle:{ elevation: 0 }}
+          { sceneContainerStyle:{...styles.sceneContainer}, headerStyle:{ elevation: 0, backgroundColor: 'orange' }}
         }
         >
           <Drawer.Screen name="Porcentaje simple" component={ SimpleScreen } />
