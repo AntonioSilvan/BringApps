@@ -2,13 +2,14 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     sceneContainer: {
-        backgroundColor: '#344860',
+        backgroundColor: 'white',
         flex: 1,
     },
 // #3ab982 verde
 // #344860 azul
+//verde #37cc70
     calculationPanel: {
-        backgroundColor: '#eff6ff',
+        backgroundColor: '#37cc70',
         borderBottomEndRadius:30,
         borderBottomStartRadius:30,
         padding: 20
@@ -20,6 +21,23 @@ export const styles = StyleSheet.create({
     },
 
     panelActions: {
-        marginTop: 20
+        marginTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+
+    numberInput: {
+        borderColor: 'white', 
+        borderBottomWidth: 2, 
+        borderRadius: 5, 
+        fontSize: 25,
+        color: 'white',
+        width: 'auto'
+    },
+
+    labelNumberInput:{
+        color: 'white',
+        fontSize: 25,
+        paddingVertical: 15
     }
 });

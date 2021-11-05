@@ -6,18 +6,19 @@ export const SimpleScreen = () => {
     return (
         <View style={styles.calculationPanel}>
             <View style={styles.simpleEntries}>
-                <View>
-                    <TextInput style={{ backgroundColor: 'white'}}/>
+                <View style={{flex: 2}}>
+                    <TextInput style={styles.numberInput} placeholder="0.0" keyboardType="numeric"/>
                 </View>
-                <View style={{  backgroundColor:'blue'}}>
-                    <Text>Caja2</Text>
+                <View style={{flex: 1}}>
+                    <Text style={styles.labelNumberInput}>% De </Text>
                 </View>
-                <View>
-                    <TextInput style={{ borderBottomColor: 'red', borderBottomWidth: 1}} placeholder="0.0" underlineColorAndroid="transparent"/>
+                <View style={{flex: 2}}>
+                    <TextInput style={ styles.numberInput} placeholder="0.0" keyboardType="numeric"/>
                 </View>
             </View>
             <View style={styles.panelActions}>
-                <Button title="Calcular"/>
+                <Text style={{ fontSize: 15, color: 'white', borderColor: 'white', borderWidth: 2, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, padding: 10}}>CALCULAR</Text>
+                <Text style={{ fontSize: 15, color: 'white', borderColor: 'white', borderWidth: 2, borderTopRightRadius: 10, borderBottomRightRadius: 10, padding: 10}}>LIMPIAR</Text>
             </View>
 
             {/*

@@ -12,9 +12,9 @@ const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
     return (
-        <Drawer.Navigator 
+        <Drawer.Navigator
         screenOptions={
-          { sceneContainerStyle:{...styles.sceneContainer}, headerStyle:{ elevation: 0, backgroundColor: 'orange' }}
+          { sceneContainerStyle:{...styles.sceneContainer}, headerStyle:{ elevation: 0, backgroundColor: '#37cc70' }}
         }
         >
           <Drawer.Screen name="Porcentaje simple" component={ SimpleScreen } />
