@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, TextInput, Button } from 'react-native';
 import { styles } from "../theme/AppTheme";
+import { ActionsButtonsComponent } from '../components/ActionButtons/ActionButtons.component';
 
 export const SimpleScreen = () => {
     return (
@@ -16,10 +17,7 @@ export const SimpleScreen = () => {
                     <TextInput style={ styles.numberInput} placeholder="0.0" keyboardType="numeric"/>
                 </View>
             </View>
-            <View style={styles.panelActions}>
-                <Text style={{ fontSize: 15, color: 'white', borderColor: 'white', borderWidth: 2, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, padding: 10}}>CALCULAR</Text>
-                <Text style={{ fontSize: 15, color: 'white', borderColor: 'white', borderWidth: 2, borderTopRightRadius: 10, borderBottomRightRadius: 10, padding: 10}}>LIMPIAR</Text>
-            </View>
+            <ActionsButtonsComponent/>
 
             {/*
             <TextInput style={{ backgroundColor: 'white'}}/>*/}

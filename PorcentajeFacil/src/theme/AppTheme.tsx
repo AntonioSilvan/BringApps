@@ -20,12 +20,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
-    panelActions: {
-        marginTop: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-
     numberInput: {
         borderColor: 'white', 
         borderBottomWidth: 2, 
