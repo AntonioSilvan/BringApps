@@ -8,7 +8,8 @@ export const abstyle = StyleSheet.create({
     },
 
     buttonCalcular: {
-        fontSize: 15, 
+        fontSize: 15,
+        fontWeight: 'bold',
         color: '#37cc70', 
         backgroundColor: 'white', 
         padding: 10,
@@ -20,6 +21,7 @@ export const abstyle = StyleSheet.create({
 
     buttonLimpiar: {
         fontSize: 15, 
+        fontWeight: 'bold',
         color: '#37cc70', 
         backgroundColor: 'white',
         borderLeftWidth: 1,
