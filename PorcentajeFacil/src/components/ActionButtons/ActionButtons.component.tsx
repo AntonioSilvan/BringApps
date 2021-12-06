@@ -4,17 +4,18 @@ import { styles } from "../../theme/AppTheme";
 import { abstyle } from './ActionButton.style';
 
 interface Props {
-    accion: (numero:string) => void
+    calcular: () => void,
+    limpiar: () => void
 }
 
-export const ActionsButtonsComponent = ( {accion}:Props ) => {
+export const ActionsButtonsComponent = ( {calcular, limpiar}:Props ) => {
     return(
         <View>
             <View style={abstyle.panelActions}>
-                <TouchableOpacity onPress={ () => accion('as')}>
+                <TouchableOpacity onPress={ () => calcular()}>
                     <Text style={abstyle.buttonCalcular}>CALCULAR</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ () => limpiar()}>
                     <Text style={abstyle.buttonLimpiar}>LIMPIAR</Text>
                 </TouchableOpacity>
             </View>
