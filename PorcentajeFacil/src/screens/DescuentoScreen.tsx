@@ -5,8 +5,8 @@ import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButto
 
 export const DescuentoScreen = () => {
 
-    const [result, setResult] = useState('');
-    const [ahorro, setAhorro] = useState('');
+    const [result, setResult] = useState('0.0');
+    const [ahorro, setAhorro] = useState('0.0');
     const [ form, setForm ] = useState({
         precioActual: '',
         descuento: ''
