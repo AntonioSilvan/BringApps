@@ -33,5 +33,5 @@ export const styles = StyleSheet.create({
         color: 'white',
         fontSize: 25,
         paddingVertical: 15
-    }
+    }    
 });

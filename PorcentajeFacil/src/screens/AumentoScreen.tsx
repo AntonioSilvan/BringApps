@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text,View, TextInput, Keyboard } from 'react-native';
+import { Text,View, TextInput, Keyboard, ImageBackground } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
 
@@ -41,32 +41,34 @@ export const AumentoScreen = () => {
 
     return (
         <View>
-            <View style={styles.calculationPanel}>
-                <View style={styles.simpleEntries}>
-                    <View style={{flex: 2, marginRight: 5, marginBottom: 10}}>
-                        <Text style={styles.labelNumberInput}>Costo $</Text>
+            <ImageBackground source={require('../assets/img/bg6.png')} resizeMode="repeat" style={{height: '100%'}}>
+                <View style={styles.calculationPanel}>
+                    <View style={styles.simpleEntries}>
+                        <View style={{flex: 2, marginRight: 5, marginBottom: 10}}>
+                            <Text style={styles.labelNumberInput}>Costo $</Text>
+                        </View>
+                        <View style={{flex: 2}}>
+                            <TextInput style={styles.numberInput}  value={form.costo} onChangeText={(value) => onChanges(value, 'costo')} placeholder="0.0" keyboardType="numeric"/>
+                        </View>
                     </View>
-                    <View style={{flex: 2}}>
-                        <TextInput style={styles.numberInput}  value={form.costo} onChangeText={(value) => onChanges(value, 'costo')} placeholder="0.0" keyboardType="numeric"/>
+                    <View style={styles.simpleEntries}>
+                        <View style={{flex: 2, marginRight: 5}}>
+                            <Text style={styles.labelNumberInput}>Aumento %</Text>
+                        </View>
+                        <View style={{flex: 2}}>
+                            <TextInput style={styles.numberInput} value={form.aumento} onChangeText={(value) => onChanges(value, 'aumento')} placeholder="0.0" keyboardType="numeric"/>
+                        </View>
                     </View>
+                    <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
                 </View>
-                <View style={styles.simpleEntries}>
-                    <View style={{flex: 2, marginRight: 5}}>
-                        <Text style={styles.labelNumberInput}>Aumento %</Text>
-                    </View>
-                    <View style={{flex: 2}}>
-                        <TextInput style={styles.numberInput} value={form.aumento} onChangeText={(value) => onChanges(value, 'aumento')} placeholder="0.0" keyboardType="numeric"/>
-                    </View>
-                </View>
-                <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
-            </View>
-            <View style={{margin: 30}}>
-                <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Precio de venta:</Text>
-                <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
+                <View style={{margin: 30}}>
+                    <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Precio de venta:</Text>
+                    <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
 
-                <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70', marginTop: 30 }}>Ganancia:</Text>
-                <Text style={{textAlign: 'center', fontSize: 30, color: '#37cc70' }}>{ganancia}</Text>
-            </View>
+                    <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70', marginTop: 30 }}>Ganancia:</Text>
+                    <Text style={{textAlign: 'center', fontSize: 30, color: '#37cc70' }}>{ganancia}</Text>
+                </View>
+            </ImageBackground>
         </View>
     )
 }

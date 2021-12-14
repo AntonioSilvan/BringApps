@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Text, View, TextInput } from 'react-native';
+import { Text, View, TextInput, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from '../components/ActionButtons/ActionButtons.component';
-
+import { CTextInput } from "../components/CTexxtInput.component";
+//^(0|[1-9]|[1-9][0-9]*)(\.[0-9]{0,3})?$
 export const SimpleScreen = () => {
 
     const [ result, setResult ] = useState('0.0');
@@ -36,24 +37,24 @@ export const SimpleScreen = () => {
 
     return (
         <View>
-            <View style={styles.calculationPanel}>
-                <View style={styles.simpleEntries}>
-                    <View style={{flex: 2}}>
-                        <TextInput style={styles.numberInput} placeholder="0.0" keyboardType="numeric" value={form.porcentaje} onChangeText={ (value) => onChanges(value, 'porcentaje')}/>
+                <View style={styles.calculationPanel}>
+                    <View style={styles.simpleEntries}>
+                        <View style={{flex: 2}}>
+                            <CTextInput placeHolder="0.0" value={form.porcentaje} onChanges={onChanges} name="porcentaje"/>
+                        </View>
+                        <View style={{flex: 1}}>
+                            <Text style={styles.labelNumberInput}>% De </Text>
+                        </View>
+                        <View style={{flex: 2}}>
+                            <CTextInput placeHolder="0.0" value={form.cantidad} onChanges={onChanges} name="cantidad"/>
+                        </View>
                     </View>
-                    <View style={{flex: 1}}>
-                        <Text style={styles.labelNumberInput}>% De </Text>
-                    </View>
-                    <View style={{flex: 2}}>
-                        <TextInput style={ styles.numberInput} placeholder="0.0" keyboardType="numeric" value={form.cantidad} onChangeText={ (value) => onChanges(value, 'cantidad')}/>
-                    </View>
+                    <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
                 </View>
-                <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
-            </View>
-            <View style={{margin: 30}}>
-                <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Resultado:</Text>
-                <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
-            </View>
+                <View style={{margin: 30}}>
+                    <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Resultado:</Text>
+                    <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
+                </View>
         </View>
     )
 }

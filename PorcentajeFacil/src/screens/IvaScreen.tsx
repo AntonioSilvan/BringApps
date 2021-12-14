@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text,View, TextInput, Keyboard } from 'react-native';
+import { Text,View, TextInput, Keyboard, ImageBackground } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
 
@@ -41,32 +41,32 @@ export const IvaScreen = () => {
 
     return (
         <View>
-            <View style={styles.calculationPanel}>
-                <View style={styles.simpleEntries}>
-                    <View style={{flex: 2, marginRight: 5, marginBottom: 10}}>
-                        <Text style={styles.labelNumberInput}>Precio neto $</Text>
+                <View style={styles.calculationPanel}>
+                    <View style={styles.simpleEntries}>
+                        <View style={{flex: 2, marginRight: 5, marginBottom: 10}}>
+                            <Text style={styles.labelNumberInput}>Precio neto $</Text>
+                        </View>
+                        <View style={{flex: 2}}>
+                            <TextInput style={styles.numberInput}  value={form.precioNeto} onChangeText={(value) => onChanges(value, 'precioNeto')} placeholder="0.0" keyboardType="numeric"/>
+                        </View>
                     </View>
-                    <View style={{flex: 2}}>
-                        <TextInput style={styles.numberInput}  value={form.precioNeto} onChangeText={(value) => onChanges(value, 'precioNeto')} placeholder="0.0" keyboardType="numeric"/>
+                    <View style={styles.simpleEntries}>
+                        <View style={{flex: 2, marginRight: 5}}>
+                            <Text style={styles.labelNumberInput}>IVA %</Text>
+                        </View>
+                        <View style={{flex: 2}}>
+                            <TextInput style={styles.numberInput} value={form.iva} onChangeText={(value) => onChanges(value, 'iva')} placeholder="0.0" keyboardType="numeric"/>
+                        </View>
                     </View>
+                    <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
                 </View>
-                <View style={styles.simpleEntries}>
-                    <View style={{flex: 2, marginRight: 5}}>
-                        <Text style={styles.labelNumberInput}>IVA %</Text>
-                    </View>
-                    <View style={{flex: 2}}>
-                        <TextInput style={styles.numberInput} value={form.iva} onChangeText={(value) => onChanges(value, 'iva')} placeholder="0.0" keyboardType="numeric"/>
-                    </View>
-                </View>
-                <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
-            </View>
-            <View style={{margin: 30}}>
-                <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Precio bruto:</Text>
-                <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
+                <View style={{margin: 10}}>
+                    <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Precio bruto:</Text>
+                    <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
 
-                <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70', marginTop: 30 }}>Impuestos:</Text>
-                <Text style={{textAlign: 'center', fontSize: 30, color: '#37cc70' }}>{impuestos}</Text>
-            </View>
+                    <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70', marginTop: 30 }}>Impuestos</Text>
+                    <Text style={{textAlign: 'center', fontSize: 30, color: '#37cc70' }}>{impuestos}</Text>
+                </View>
         </View>
     )
 }
