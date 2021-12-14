@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Alert, ToastAndroid } from 'react-native';
 
 interface Props {
@@ -8,20 +8,23 @@ interface Props {
     name:string
 }
 
-export const CTextInput = ({placeHolder, value, name, onChanges}: Props) => {
+export const CInputNumber = ({placeHolder, value, name, onChanges}: Props) => {
+
+    const [fail, setFail] = useState(false);
 
     function validate(value:string) {
         let re = /^(0|[1-9]|[1-9][0-9]*)(\.[0-9]{0,3})?$/;
         let result = re.test(value);
+        setFail(false);
         if(!result){
+            setFail(true);
             ToastAndroid.show("Entrada incorrecta", ToastAndroid.SHORT);
         }
-
     }
 
     return (
         <TextInput
-        style={styles.input}
+        style={ !fail ? styles.input : {...styles.input, borderColor: 'red', color: 'red' }}
         value={value}
         placeholder={placeHolder}
         keyboardType="numeric"
@@ -39,5 +42,9 @@ const styles =  StyleSheet.create({
         color: 'white',
         width: 'auto'
     },
+    inputError: {
+        
+        
+    }
 });
 //<TextInput style={styles.numberInput} placeholder="0.0" keyboardType="numeric" value={form.porcentaje} onChangeText={ (value) => onChanges(value, 'porcentaje')}/>

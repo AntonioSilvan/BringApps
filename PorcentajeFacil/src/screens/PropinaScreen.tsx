@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Text,View, TextInput, Keyboard, ImageBackground } from 'react-native';
+import { Text,View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
+import { CInputNumber } from "../components/CInputNumber.component";
 
 export const PropinaScreen = () => {
 
@@ -41,14 +42,13 @@ export const PropinaScreen = () => {
 
     return (
         <View>
-            <ImageBackground source={require('../assets/img/bg6.png')} resizeMode="repeat" style={{height: '100%'}}>
                 <View style={styles.calculationPanel}>
                     <View style={styles.simpleEntries}>
                         <View style={{flex: 2, marginRight: 5, marginBottom: 10}}>
                             <Text style={styles.labelNumberInput}>Cuenta $</Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <TextInput style={styles.numberInput}  value={form.cuenta} onChangeText={(value) => onChanges(value, 'cuenta')} placeholder="0.0" keyboardType="numeric"/>
+                            <CInputNumber placeHolder="0.0" value={form.cuenta} onChanges={onChanges} name="cuenta"/>
                         </View>
                     </View>
                     <View style={styles.simpleEntries}>
@@ -56,7 +56,7 @@ export const PropinaScreen = () => {
                             <Text style={styles.labelNumberInput}>Propina %</Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <TextInput style={styles.numberInput} value={form.propina} onChangeText={(value) => onChanges(value, 'propina')} placeholder="0.0" keyboardType="numeric"/>
+                            <CInputNumber placeHolder="0.0" value={form.propina} onChanges={onChanges} name="propina"/>
                         </View>
                     </View>
                     <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
@@ -68,7 +68,6 @@ export const PropinaScreen = () => {
                     <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70', marginTop: 30 }}>Cuenta total:</Text>
                     <Text style={{textAlign: 'center', fontSize: 30, color: '#37cc70' }}>{totalCuenta}</Text>
                 </View>
-            </ImageBackground>
         </View>
     )
 }

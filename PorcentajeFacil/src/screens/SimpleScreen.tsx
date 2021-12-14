@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Text, View, TextInput, ImageBackground, KeyboardAvoidingView } from 'react-native';
+import { Text, View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from '../components/ActionButtons/ActionButtons.component';
-import { CTextInput } from "../components/CTexxtInput.component";
-//^(0|[1-9]|[1-9][0-9]*)(\.[0-9]{0,3})?$
+import { CInputNumber } from "../components/CInputNumber.component";
+
 export const SimpleScreen = () => {
 
     const [ result, setResult ] = useState('0.0');
@@ -25,6 +25,7 @@ export const SimpleScreen = () => {
 
         const result = (cantidad * porcentaje)/100; 
         setResult(result.toString());
+        Keyboard.dismiss();
     }
 
     const limpiar = () => {
@@ -40,13 +41,13 @@ export const SimpleScreen = () => {
                 <View style={styles.calculationPanel}>
                     <View style={styles.simpleEntries}>
                         <View style={{flex: 2}}>
-                            <CTextInput placeHolder="0.0" value={form.porcentaje} onChanges={onChanges} name="porcentaje"/>
+                            <CInputNumber placeHolder="0.0" value={form.porcentaje} onChanges={onChanges} name="porcentaje"/>
                         </View>
                         <View style={{flex: 1}}>
                             <Text style={styles.labelNumberInput}>% De </Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <CTextInput placeHolder="0.0" value={form.cantidad} onChanges={onChanges} name="cantidad"/>
+                            <CInputNumber placeHolder="0.0" value={form.cantidad} onChanges={onChanges} name="cantidad"/>
                         </View>
                     </View>
                     <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>

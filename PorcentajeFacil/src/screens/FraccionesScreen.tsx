@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Text,View, TextInput, Keyboard, ImageBackground } from 'react-native';
+import { Text,View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
+import { CInputNumber } from "../components/CInputNumber.component";
 
 export const FraccionesScreen = () => {
 
@@ -37,20 +38,19 @@ export const FraccionesScreen = () => {
 
     return (
         <View>
-            <ImageBackground source={require('../assets/img/bg6.png')} resizeMode="repeat" style={{height: '100%'}}>
                 <View style={styles.calculationPanel}>
                     <View style={styles.simpleEntries}>
                         <View style={{flex: 2}}>
                             <Text style={styles.labelNumberInput}>Fraccion </Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <TextInput style={styles.numberInput} placeholder="0.0" keyboardType="numeric" value={form.numerador} onChangeText={ (value) => onChanges(value, 'numerador')}/>
+                            <CInputNumber placeHolder="0.0" value={form.numerador} onChanges={onChanges} name="numerador"/>
                         </View>
                         <View style={{flex: 1}}>
                             <Text style={styles.labelNumberInput}>   / </Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <TextInput style={ styles.numberInput} placeholder="0.0" keyboardType="numeric" value={form.denominador} onChangeText={ (value) => onChanges(value, 'denominador')}/>
+                            <CInputNumber placeHolder="0.0" value={form.denominador} onChanges={onChanges} name="denominador"/>
                         </View>
                     </View>
                     <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
@@ -59,7 +59,6 @@ export const FraccionesScreen = () => {
                     <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>La fraccion equivale a:</Text>
                     <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>% {result}</Text>
                 </View>
-            </ImageBackground>
         </View>
     )
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Text,View, TextInput, Keyboard, ImageBackground } from 'react-native';
+import { Text,View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
+import { CInputNumber } from "../components/CInputNumber.component";
 
 export const IvaScreen = () => {
 
@@ -47,7 +48,7 @@ export const IvaScreen = () => {
                             <Text style={styles.labelNumberInput}>Precio neto $</Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <TextInput style={styles.numberInput}  value={form.precioNeto} onChangeText={(value) => onChanges(value, 'precioNeto')} placeholder="0.0" keyboardType="numeric"/>
+                            <CInputNumber placeHolder="0.0" value={form.precioNeto} onChanges={onChanges} name="precioNeto" />
                         </View>
                     </View>
                     <View style={styles.simpleEntries}>
@@ -55,7 +56,7 @@ export const IvaScreen = () => {
                             <Text style={styles.labelNumberInput}>IVA %</Text>
                         </View>
                         <View style={{flex: 2}}>
-                            <TextInput style={styles.numberInput} value={form.iva} onChangeText={(value) => onChanges(value, 'iva')} placeholder="0.0" keyboardType="numeric"/>
+                            <CInputNumber placeHolder="0.0" value={form.iva} onChanges={onChanges} name="iva"/>
                         </View>
                     </View>
                     <ActionsButtonsComponent calcular={calcular} limpiar={limpiar}/>
