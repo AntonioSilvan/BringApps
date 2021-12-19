@@ -3,6 +3,7 @@ import { Text,View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
 import { CInputNumber } from "../components/CInputNumber.component";
+import { sanitResult } from "../Helper";
 
 export const FraccionesScreen = () => {
 
@@ -20,11 +21,13 @@ export const FraccionesScreen = () => {
     }
 
     const calcular = () => {
-        const numerador = parseInt(form.numerador);
-        const denominador = parseInt(form.denominador);
+        const numerador = parseFloat(form.numerador);
+        const denominador = parseFloat(form.denominador);
 
         const resultado = (numerador / denominador)*100;
-        setResult(resultado.toString());
+
+        const sanitResultado = sanitResult(resultado);
+        setResult(sanitResultado);
         Keyboard.dismiss();
     }
 

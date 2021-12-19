@@ -3,6 +3,7 @@ import { Text, View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from '../components/ActionButtons/ActionButtons.component';
 import { CInputNumber } from "../components/CInputNumber.component";
+import { sanitResult } from "../Helper";
 
 export const SimpleScreen = () => {
 
@@ -20,11 +21,12 @@ export const SimpleScreen = () => {
     }
 
     const calcular = () => {
-        const porcentaje = parseInt(form.porcentaje);
-        const cantidad = parseInt(form.cantidad);
+        const porcentaje = parseFloat(form.porcentaje);
+        const cantidad = parseFloat(form.cantidad);
 
-        const result = ((cantidad * porcentaje)/100).toFixed(3); 
-        setResult(result.toString());
+        const result = (cantidad * porcentaje)/100;
+        const sResult = sanitResult(result);
+        setResult(sResult);
         Keyboard.dismiss();
     }
 

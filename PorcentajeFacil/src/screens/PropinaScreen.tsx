@@ -3,6 +3,7 @@ import { Text,View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
 import { CInputNumber } from "../components/CInputNumber.component";
+import { sanitResult } from "../Helper";
 
 export const PropinaScreen = () => {
 
@@ -21,13 +22,17 @@ export const PropinaScreen = () => {
     }
 
     const calcular = () => {
-        const precioActual = parseInt(form.cuenta);
-        const descuento = parseInt(form.propina);
+        const precioActual = parseFloat(form.cuenta);
+        const descuento = parseFloat(form.propina);
 
         const propina = (precioActual * descuento)/100;
         const cuentaTotal = precioActual + propina;
-        setResult(propina.toString());
-        setTotalCuenta(cuentaTotal.toString());
+
+        const sanitPropina = sanitResult(propina);
+        const sanitCuentaTotal = sanitResult(cuentaTotal);
+
+        setResult(sanitPropina);
+        setTotalCuenta(sanitCuentaTotal);
         Keyboard.dismiss();
     }
 

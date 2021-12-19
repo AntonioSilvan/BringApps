@@ -3,6 +3,7 @@ import { Text,View, Keyboard } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
 import { CInputNumber } from "../components/CInputNumber.component";
+import { sanitResult } from "../Helper";
 
 export const IvaScreen = () => {
 
@@ -21,13 +22,17 @@ export const IvaScreen = () => {
     }
 
     const calcular = () => {
-        const precioNeto = parseInt(form.precioNeto);
-        const iva = parseInt(form.iva);
+        const precioNeto = parseFloat(form.precioNeto);
+        const iva = parseFloat(form.iva);
 
         const impuestos = (precioNeto * iva)/100;
         const precioBruto = precioNeto + iva;
-        setResult(precioBruto.toString());
-        setImpuestos(impuestos.toString());
+
+        const sanitImpuestos = sanitResult(impuestos);
+        const sanitPrecioBruto = sanitResult(precioBruto);
+
+        setResult(sanitPrecioBruto);
+        setImpuestos(sanitImpuestos);
         Keyboard.dismiss();
     }
 

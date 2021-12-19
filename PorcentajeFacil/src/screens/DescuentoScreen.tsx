@@ -3,6 +3,7 @@ import { Text,View, Keyboard  } from 'react-native';
 import { styles } from "../theme/AppTheme";
 import { ActionsButtonsComponent } from "../components/ActionButtons/ActionButtons.component";
 import { CInputNumber } from "../components/CInputNumber.component";
+import { sanitResult } from "../Helper";
 
 export const DescuentoScreen = () => {
 
@@ -21,13 +22,17 @@ export const DescuentoScreen = () => {
     }
 
     const calcular = () => {
-        const precioActual = parseInt(form.precioActual);
-        const descuento = parseInt(form.descuento);
+        const precioActual = parseFloat(form.precioActual);
+        const descuento = parseFloat(form.descuento);
 
         const descuentoCantidad = (precioActual * descuento)/100;
         const resultado = precioActual - descuentoCantidad;
-        setResult(resultado.toString());
-        setAhorro(descuentoCantidad.toString());
+
+        const sanitDescuentoCantidad = sanitResult(descuentoCantidad);
+        const sanitResultado = sanitResult(resultado);
+
+        setResult(sanitResultado);
+        setAhorro(sanitDescuentoCantidad);
         Keyboard.dismiss();
     }
 
