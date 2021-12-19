@@ -23,7 +23,7 @@ export const SimpleScreen = () => {
         const porcentaje = parseInt(form.porcentaje);
         const cantidad = parseInt(form.cantidad);
 
-        const result = (cantidad * porcentaje)/100; 
+        const result = ((cantidad * porcentaje)/100).toFixed(3); 
         setResult(result.toString());
         Keyboard.dismiss();
     }
@@ -54,7 +54,7 @@ export const SimpleScreen = () => {
                 </View>
                 <View style={{margin: 30}}>
                     <Text style={{textAlign: 'center', fontSize: 20, color: '#37cc70' }}>Resultado:</Text>
-                    <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70' }}>{result}</Text>
+                    <Text style={{textAlign: 'center', fontSize: 50, color: '#37cc70', zIndex: 1 }}>{result}</Text>
                 </View>
         </View>
     )

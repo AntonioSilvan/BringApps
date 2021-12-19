@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     sceneContainer: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         flex: 1,
     },
 // #3ab982 verde
