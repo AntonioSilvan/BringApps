@@ -29,12 +29,15 @@ const NavigationDrawerStructure = ({navigation}:Props) => {
 const Drawer = createDrawerNavigator();
 
 export const MenuLateral = () => {
-  const da = DrawerActions;
     return (
         <Drawer.Navigator
+        
         screenOptions={ (props) => ( {
           sceneContainerStyle:{...styles.sceneContainer},
           headerStyle:{ elevation: 0, backgroundColor: '#37cc70' },
+          drawerActiveBackgroundColor:'#8bff94',
+          drawerLabelStyle: {color: '#404e41'},
+          headerTitleStyle:{color: 'white'},
           headerLeft: () => <TouchableOpacity style={{marginLeft: 10}} onPress={() => props.navigation.toggleDrawer()}>
             <Icon name="filter-outline" size={25} color="white" />
           </TouchableOpacity>
