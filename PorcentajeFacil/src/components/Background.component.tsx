@@ -16,9 +16,9 @@ export const CBackground = ({children}: Props) => {
         <View style={styles.dimensions}>
             <View style={styles.pics}>
                 {
-                    repeatVerticalIcons.map(el => <View style={styles.wrapVerticalIcons}>
+                    repeatVerticalIcons.map((el, index) => <View key={index} style={styles.wrapVerticalIcons}>
                         {
-                            repeatHorizontalIcons.map(icon => <Icon style={{margin: 15}} name="ribbon-outline" size={40} color="#f9f9f9"/>)
+                            repeatHorizontalIcons.map((icon, index) => <Icon key={index} style={{margin: 15}} name="ribbon-outline" size={40} color="#F4F6F6"/>)
                         }
                     </View>)
                 }

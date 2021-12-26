@@ -26,7 +26,7 @@ export const IvaScreen = () => {
         const iva = parseFloat(form.iva);
 
         const impuestos = (precioNeto * iva)/100;
-        const precioBruto = precioNeto + iva;
+        const precioBruto = precioNeto + impuestos;
 
         const sanitImpuestos = sanitResult(impuestos);
         const sanitPrecioBruto = sanitResult(precioBruto);
